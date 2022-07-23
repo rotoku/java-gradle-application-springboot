@@ -49,7 +49,7 @@ test {
 jacocoTestReport {
    reports {
         xml.enabled true
-        csv.enabled false
+        csv.enabled true
         html.enabled true
     }
     dependsOn test
@@ -57,9 +57,11 @@ jacocoTestReport {
 
 jacoco {
     toolVersion = "0.8.8"
-    reportsDir = file("$buildDir/jacoco")
+    reportsDir = file("$buildDir/reports/jacoco")
 }
 
 sonarqube {
-
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+    }
 }
